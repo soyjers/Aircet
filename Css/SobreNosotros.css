@@ -1,0 +1,38 @@
+/* Copiamos estilos base para mantener consistencia */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+:root { --primary: #007bff; --dark: #1a1a1a; }
+
+/* Navbar (Igual al inicio) */
+.navbar { background: var(--dark); color: #fff; display: flex; justify-content: space-between; padding: 1rem 2rem; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: #fff; text-decoration: none; }
+.nav-links a.active { color: var(--primary); }
+
+/* Estilos específicos de About */
+.about-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    flex: 1;
+}
