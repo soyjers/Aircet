@@ -1,76 +1,105 @@
 /* --- Css/Inicio.css --- */
 
-/* Reset básico */
+/* Reset & Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-/* --- PALETA DE COLORES OFICIAL AIRCET --- */
+/* --- PALETA OFICIAL AIRCET --- */
 :root {
-    --primary: #0072B8;       /* Azul Primario (Logo) */
-    --secondary: #004A83;     /* Azul Oscuro (Ondas) */
-    --accent: #00A993;        /* Verde Turquesa (Fresco/Moderno) */
-    --accent-light: #2BC5A0;  /* Verde Claro (Dinamismo) */
-    --text-grey: #D9D9D9;     /* Gris Claro */
-    --bg-dark: #1E1E1E;       /* Gris Oscuro (Fondos) */
+    --primary: #0072B8;       /* Azul Primario */
+    --secondary: #004A83;     /* Azul Oscuro */
+    --accent: #00A993;        /* Verde Turquesa */
+    --accent-light: #2BC5A0;  /* Verde Claro */
+    --dark-grey: #1E1E1E;     /* Gris Oscuro Fondo */
+    --light-grey: #D9D9D9;    /* Gris Claro Texto */
     --white: #ffffff;
-    --light-bg: #f4f4f4;
+    --off-white: #f8f9fa;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra moderna */
+    --shadow-hover: 0 15px 40px rgba(0, 74, 131, 0.15);
 }
 
 body {
-    background-color: var(--light-bg);
+    background-color: var(--off-white);
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* --- BARRA DE NAVEGACIÓN --- */
+/* --- NAVBAR PREMIUM --- */
 .navbar {
-    background: var(--bg-dark);
-    color: var(--white);
+    background: var(--dark-grey);
+    height: 90px;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5%; /* Más margen a los lados */
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 0 8%;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* LOGO MÁS GRANDE Y VISIBLE */
 .logo-img {
-    height: 50px;
+    height: 70px;
     width: auto;
-    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 25px;
+    list-style: none;
+    gap: 35px;
 }
 
 .nav-links a {
-    color: var(--text-grey);
+    color: var(--light-grey);
     text-decoration: none;
     font-weight: 500;
-    transition: 0.3s;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: var(--accent); /* Hover en Turquesa */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
 }
 
-/* --- HERO SECTION (PORTADA) --- */
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+/* --- HERO SECTION --- */
 .hero {
-    height: 85vh;
-    /* Fondo oscuro con superposición azulada */
-    background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(0, 74, 131, 0.6)), url('https://source.unsplash.com/1920x1080/?industrial,engineering');
+    height: 90vh;
+    background: url(../img/FondoInicio.png);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,123 +108,148 @@ body {
     padding: 0 20px;
 }
 
+.hero-content {
+    max-width: 900px;
+    animation: fadeIn 1.5s ease;
+}
+
 .hero-content h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
+    font-size: 3.8rem;
+    font-weight: 800;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
-    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    color: var(--text-grey);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--light-grey);
+    font-weight: 300;
 }
 
-/* Botones */
+/* BOTÓN MODERNO */
 .btn {
     display: inline-block;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
-    padding: 12px 30px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 600;
     text-decoration: none;
-    border-radius: 30px; /* Bordes redondeados modernos */
-    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 114, 184, 0.4);
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    background: transparent;
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 169, 147, 0.5);
+    background: linear-gradient(90deg, var(--secondary) 0%, var(--accent) 100%);
 }
 
-/* --- SECCIÓN DE SERVICIOS --- */
-.services-section {
-    padding: 5rem 5%;
-    background-color: var(--white);
-    text-align: center;
-}
-
+/* --- SECCIONES GENERALES --- */
 .section-title {
+    text-align: center;
     margin-bottom: 4rem;
 }
 
 .section-title h2 {
-    font-size: 2.5rem;
-    color: var(--secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    color: var(--dark-grey);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
 .section-title p {
-    color: var(--accent);
+    color: var(--secondary);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
+}
+
+/* --- CARDS DE SERVICIOS --- */
+.services-section {
+    padding: 6rem 8%;
+    background: var(--white);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
 }
 
 .service-card {
-    background: var(--light-bg);
-    padding: 2.5rem;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-bottom: 4px solid var(--primary);
-    text-align: left; /* Alineación a la izquierda como el brochure */
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+    border-top: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 0;
+    background: rgba(0, 114, 184, 0.03);
+    transition: height 0.4s ease;
+    z-index: -1;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    border-bottom-color: var(--accent);
+    transform: translateY(-15px);
+    box-shadow: var(--shadow-hover);
+    border-top-color: var(--accent);
+}
+
+.service-card:hover::before {
+    height: 100%;
 }
 
 .service-card i {
-    font-size: 2.5rem;
-    color: var(--secondary);
+    font-size: 3rem;
+    background: -webkit-linear-gradient(var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text; /* Estándar agregado */
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
-    display: block;
 }
 
 .service-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    color: var(--secondary);
     margin-bottom: 1rem;
-    color: var(--bg-dark);
-    font-weight: 700;
-    min-height: 60px; /* Para alinear títulos */
-    display: flex;
-    align-items: center;
 }
 
-.service-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.service-card li {
-    margin-bottom: 10px;
+.service-card ul li {
+    margin-bottom: 12px;
+    color: #666;
     font-size: 0.95rem;
-    color: #555;
+    list-style: none;
     position: relative;
-    padding-left: 15px;
+    padding-left: 20px;
 }
 
-/* Pequeño punto decorativo en las listas */
-.service-card li::before {
-    content: "•";
+/* AQUÍ ARREGLÉ EL SÍMBOLO DEL CHECK */
+.service-card ul li::before {
+    content: '\2713'; /* Código universal para el Check */
     color: var(--accent);
     font-weight: bold;
     position: absolute;
@@ -204,18 +258,15 @@ body {
 
 /* --- FOOTER --- */
 footer {
-    background: var(--bg-dark);
-    color: var(--text-grey);
+    background: var(--dark-grey);
+    color: var(--light-grey);
     text-align: center;
-    padding: 2rem;
-    margin-top: auto;
-    border-top: 4px solid var(--accent);
+    padding: 3rem 0;
+    border-top: 5px solid var(--accent);
 }
 
-footer p {
-    margin: 5px 0;
-}
-
-footer strong {
-    color: var(--white);
+/* Animación de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }

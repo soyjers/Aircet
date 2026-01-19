@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIRCET - Contacto</title>
-    <link rel="stylesheet" href="../Css/Inicio.css"> <link rel="stylesheet" href="../Css/Contacto.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../img/Logos/LogotipoAzul.png" type="image/png">
+    
+    <link rel="stylesheet" href="../Css/Inicio.css">
+    <link rel="stylesheet" href="../Css/Contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+
+
     <nav class="navbar">
         <a href="Inicio.html" class="logo-container">
-            <img src="../img/Mesa de trabajo 11.png" alt="AIRCET Logo" class="logo-img">
+            <img src="../img/Logos/LogoBlanco.png" alt="AIRCET Logo" class="logo-img">
         </a>
         <ul class="nav-links">
             <li><a href="Inicio.html">Inicio</a></li>
@@ -20,16 +26,25 @@
         </ul>
     </nav>
 
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Soluciones de Ingeniería y <br> <span style="color: var(--accent);">Automatización Industrial</span></h1>
+            <p>Especialistas en HVAC, Control y Eficiencia Energética.</p>
+            <a href="Contacto.html" class="btn">Cotizar Proyecto</a>
+
+            <img src="../img/Trabajando.jpg" alt="">
+        </div>
+    </header>
+
     <div class="contact-wrapper">
-        
         <div class="info-panel">
-            <h2>Contáctanos</h2>
-            <p>Estamos listos para impulsar la transformación tecnológica de su empresa.</p>
+            <h2>Hablemos</h2>
+            <p>Estamos listos para optimizar su infraestructura con tecnología de punta.</p>
             
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
                 <div>
-                    <h4>Email</h4>
+                    <h4>Correo Electrónico</h4>
                     <p>aircet@hotmail.com</p>
                 </div>
             </div>
@@ -37,9 +52,8 @@
             <div class="info-item">
                 <i class="fas fa-phone-alt"></i>
                 <div>
-                    <h4>Teléfonos</h4>
+                    <h4>Línea Directa</h4>
                     <p>+57 304 632 3999</p>
-                    <p>+57 322 276 9241</p>
                 </div>
             </div>
 
@@ -53,20 +67,29 @@
         </div>
 
         <form class="form">
-            <h3>Envíanos un mensaje</h3>
-            <label>Nombre:</label>
-            <input type="text" placeholder="Tu nombre" required>
+            <h3>Envíenos un mensaje</h3>
             
-            <label>Email:</label>
-            <input type="email" placeholder="tucorreo@empresa.com" required>
+            <div class="input-group">
+                <label>Nombre Completo</label>
+                <input type="text" placeholder="Ej. Juan Pérez" required>
+            </div>
             
-            <label>Asunto:</label>
-            <input type="text" placeholder="Cotización / Mantenimiento">
+            <div class="input-group">
+                <label>Correo Corporativo</label>
+                <input type="email" placeholder="juan@empresa.com" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Asunto</label>
+                <input type="text" placeholder="Cotización de Automatización...">
+            </div>
 
-            <label>Mensaje:</label>
-            <textarea rows="5" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+            <div class="input-group">
+                <label>Detalles del Proyecto</label>
+                <textarea rows="4" placeholder="Describa brevemente sus necesidades..."></textarea>
+            </div>
             
-            <button type="submit">Enviar Mensaje</button>
+            <button type="submit">Enviar Solicitud <i class="fas fa-paper-plane" style="margin-left:10px;"></i></button>
         </form>
     </div>
 
