@@ -1,3 +1,5 @@
+/* --- Css/Inicio.css --- */
+
 /* Reset básico */
 * {
     margin: 0;
@@ -6,53 +8,67 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Variables de color */
+/* --- PALETA DE COLORES OFICIAL AIRCET --- */
 :root {
-    --primary: #007bff;
-    --dark: #1a1a1a;
-    --light: #f4f4f4;
+    --primary: #0072B8;       /* Azul Primario (Logo) */
+    --secondary: #004A83;     /* Azul Oscuro (Ondas) */
+    --accent: #00A993;        /* Verde Turquesa (Fresco/Moderno) */
+    --accent-light: #2BC5A0;  /* Verde Claro (Dinamismo) */
+    --text-grey: #D9D9D9;     /* Gris Claro */
+    --bg-dark: #1E1E1E;       /* Gris Oscuro (Fondos) */
+    --white: #ffffff;
+    --light-bg: #f4f4f4;
 }
 
 body {
-    background-color: var(--light);
+    background-color: var(--light-bg);
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Navegación */
+/* --- BARRA DE NAVEGACIÓN --- */
 .navbar {
-    background: var(--dark);
-    color: #fff;
+    background: var(--bg-dark);
+    color: var(--white);
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem 5%; /* Más margen a los lados */
     align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
-    color: #fff;
+    color: var(--text-grey);
     text-decoration: none;
+    font-weight: 500;
     transition: 0.3s;
+    font-size: 1rem;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--primary);
+    color: var(--accent); /* Hover en Turquesa */
 }
 
-/* Hero Section */
+/* --- HERO SECTION (PORTADA) --- */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1920x1080/?technology');
+    height: 85vh;
+    /* Fondo oscuro con superposición azulada */
+    background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(0, 74, 131, 0.6)), url('https://source.unsplash.com/1920x1080/?industrial,engineering');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -60,27 +76,146 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
+    padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    color: var(--text-grey);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botones */
 .btn {
     display: inline-block;
     background: var(--primary);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 30px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
+    border-radius: 30px; /* Bordes redondeados modernos */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-footer {
-    background: var(--dark);
-    color: white;
+.btn:hover {
+    background: transparent;
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* --- SECCIÓN DE SERVICIOS --- */
+.services-section {
+    padding: 5rem 5%;
+    background-color: var(--white);
     text-align: center;
-    padding: 1rem;
+}
+
+.section-title {
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: var(--accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--light-bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid var(--primary);
+    text-align: left; /* Alineación a la izquierda como el brochure */
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-bottom-color: var(--accent);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--bg-dark);
+    font-weight: 700;
+    min-height: 60px; /* Para alinear títulos */
+    display: flex;
+    align-items: center;
+}
+
+.service-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-card li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Pequeño punto decorativo en las listas */
+.service-card li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: var(--bg-dark);
+    color: var(--text-grey);
+    text-align: center;
+    padding: 2rem;
     margin-top: auto;
+    border-top: 4px solid var(--accent);
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer strong {
+    color: var(--white);
 }

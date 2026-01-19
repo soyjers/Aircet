@@ -4,30 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIRCET - Contacto</title>
-    <link rel="stylesheet" href="../Css/Contacto.css">
+    <link rel="stylesheet" href="../Css/Inicio.css"> <link rel="stylesheet" href="../Css/Contacto.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">AIRCET</div>
+        <a href="Inicio.html" class="logo-container">
+            <img src="../img/Mesa de trabajo 11.png" alt="AIRCET Logo" class="logo-img">
+        </a>
         <ul class="nav-links">
             <li><a href="Inicio.html">Inicio</a></li>
             <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="Inicio.html#servicios">Servicios</a></li>
             <li><a href="Contacto.html" class="active">Contacto</a></li>
         </ul>
     </nav>
 
-    <div class="contact-container">
+    <div class="contact-wrapper">
+        
+        <div class="info-panel">
+            <h2>Contáctanos</h2>
+            <p>Estamos listos para impulsar la transformación tecnológica de su empresa.</p>
+            
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>aircet@hotmail.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h4>Teléfonos</h4>
+                    <p>+57 304 632 3999</p>
+                    <p>+57 322 276 9241</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Ubicación</h4>
+                    <p>Bogotá, Colombia</p>
+                </div>
+            </div>
+        </div>
+
         <form class="form">
-            <h2>Escríbenos</h2>
+            <h3>Envíanos un mensaje</h3>
             <label>Nombre:</label>
             <input type="text" placeholder="Tu nombre" required>
             
             <label>Email:</label>
-            <input type="email" placeholder="tucorreo@ejemplo.com" required>
+            <input type="email" placeholder="tucorreo@empresa.com" required>
             
+            <label>Asunto:</label>
+            <input type="text" placeholder="Cotización / Mantenimiento">
+
             <label>Mensaje:</label>
-            <textarea rows="5" placeholder="¿En qué podemos ayudarte?"></textarea>
+            <textarea rows="5" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
             
             <button type="submit">Enviar Mensaje</button>
         </form>
