@@ -76,27 +76,14 @@ body { background-color: var(--light-bg); color: #333; line-height: 1.6; overflo
 .value-card h3 { color: var(--secondary); margin-bottom: 1rem; font-size: 1.3rem; }
 .value-card p { font-size: 0.95rem; color: var(--text-grey); }
 
-/* --- INFINITE LOGO SLIDER (ESTILOS NUEVOS) --- */
-.trust-banner {
-    background: white;
-    padding: 4rem 0;
-    text-align: center;
-    overflow: hidden;
-    border-top: 1px solid #eee;
-}
-
+/* --- INFINITE LOGO SLIDER --- */
+.trust-banner { background: white; padding: 4rem 0; text-align: center; overflow: hidden; border-top: 1px solid #eee; }
 .trust-banner h3 { color: var(--secondary); font-size: 2rem; margin-bottom: 0.5rem; }
 .trust-banner p { color: #666; margin-bottom: 3rem; font-size: 1.1rem; }
 
 .slider {
-    height: 120px; /* Un poco más alto para el efecto grow */
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    display: flex; align-items: center;
+    height: 120px; margin: auto; overflow: hidden; position: relative; width: 100%; display: flex; align-items: center;
 }
-
 .slider::before, .slider::after {
     background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
     content: ""; height: 100%; position: absolute; width: 150px; z-index: 2; pointer-events: none;
@@ -105,34 +92,16 @@ body { background-color: var(--light-bg); color: #333; line-height: 1.6; overflo
 .slider::after { right: 0; top: 0; transform: rotateZ(180deg); }
 
 .slide-track {
-    display: flex;
-    width: calc(200px * 32); /* 200px * 32 logos (16+16) */
-    animation: scroll 60s linear infinite; /* Velocidad ajustada */
+    display: flex; width: calc(200px * 32); animation: scroll 60s linear infinite;
 }
-
 .slide {
-    height: 100px;
-    width: 200px;
-    display: flex; align-items: center; justify-content: center;
-    padding: 0 25px;
-    transition: transform 0.3s ease;
+    height: 100px; width: 200px; display: flex; align-items: center; justify-content: center; padding: 0 25px; transition: transform 0.3s ease;
 }
-
 .slide img {
-    max-height: 70px;
-    max-width: 100%;
-    filter: grayscale(100%); /* Por defecto gris */
-    opacity: 0.4;
-    transition: all 0.3s ease;
-    object-fit: contain;
+    max-height: 70px; max-width: 100%; filter: grayscale(100%); opacity: 0.4; transition: all 0.3s ease; object-fit: contain;
 }
-
-/* EFECTO ACTIVO (CENTRO) */
-.slide.active img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.3); /* Crece 30% */
-}
+/* Activo */
+.slide.active img { filter: grayscale(0%); opacity: 1; transform: scale(1.3); }
 
 @keyframes scroll {
     0% { transform: translateX(0); }
@@ -186,6 +155,25 @@ footer { background: var(--dark-bg); color: #999; text-align: center; padding: 3
 .footer-container { display: flex; flex-direction: column; align-items: center; gap: 15px; }
 .footer-logo { height: 50px; opacity: 0.8; }
 
+/* --- BOTÓN WHATSAPP --- */
+.whatsapp-float {
+    position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+    background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px;
+    box-shadow: 2px 2px 3px #999; z-index: 1000; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease; text-decoration: none;
+}
+.whatsapp-float:hover { background-color: #20b85a; transform: scale(1.1); }
+
+/* Animación de pulso */
+.whatsapp-float::after {
+    content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%;
+    background: #25d366; z-index: -1; animation: pulse 2s infinite; opacity: 0.5;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
 /* REVEAL ANIMATION */
 .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
@@ -197,8 +185,9 @@ footer { background: var(--dark-bg); color: #999; text-align: center; padding: 3
     .nav-links { display: none; }
     .mobile-toggle { display: block; }
     /* Ajuste Carrusel Móvil */
-    .slide { width: 150px; padding: 0 15px; }
+    .slider::before, .slider::after { width: 50px; }
     .slide-track { width: calc(150px * 32); }
+    .slide { width: 150px; padding: 0 15px; }
     @keyframes scroll {
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-150px * 16)); }

@@ -18,6 +18,7 @@
         <ul class="nav-links">
             <li><a href="Inicio.html">Inicio</a></li>
             <li><a href="SobreNosotros.html" class="active">Sobre Nosotros</a></li>
+            <li><a href="Inicio.html#sectores">Sectores</a></li>
             <li><a href="Contacto.html">Contacto</a></li>
         </ul>
         <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
@@ -48,7 +49,7 @@
                 </div>
             </div>
             <div class="bio-img">
-                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" alt="Ingenieros Aircet">
+                <img src="../img/Trabajando.jpg" alt="Ingenieros Aircet" onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800'">
             </div>
         </div>
     </section>
@@ -114,6 +115,26 @@
             <p>&copy; 2026 <strong>AIRCET</strong>. Innovación Tecnológica.</p>
         </div>
     </footer>
+
+    <a href="https://wa.me/573046323999?text=Hola%20Aircet,%20quisiera%20conocer%20más%20sobre%20su%20esencia%20y%20servicios." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp my-float"></i>
+    </a>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal, .fade-in-up');
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 100;
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal();
+    </script>
 
 </body>
 </html>
