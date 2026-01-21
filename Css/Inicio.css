@@ -13,7 +13,7 @@
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
+body { background-color: var(--light-bg); color: #333; line-height: 1.6; overflow-x: hidden; }
 
 /* NAVBAR */
 .navbar {
@@ -31,7 +31,7 @@ body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
 /* HERO */
 .hero {
     height: 90vh;
-    background: url('../img/AircetAire.jpg') center/cover no-repeat fixed;
+    background: url('../img/FondoInicio.png') center/cover no-repeat fixed;
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: white; position: relative; padding: 0 20px;
 }
@@ -75,6 +75,69 @@ body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
 .icon-value { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
 .value-card h3 { color: var(--secondary); margin-bottom: 1rem; font-size: 1.3rem; }
 .value-card p { font-size: 0.95rem; color: var(--text-grey); }
+
+/* --- INFINITE LOGO SLIDER (ESTILOS NUEVOS) --- */
+.trust-banner {
+    background: white;
+    padding: 4rem 0;
+    text-align: center;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
+
+.trust-banner h3 { color: var(--secondary); font-size: 2rem; margin-bottom: 0.5rem; }
+.trust-banner p { color: #666; margin-bottom: 3rem; font-size: 1.1rem; }
+
+.slider {
+    height: 120px; /* Un poco más alto para el efecto grow */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    display: flex; align-items: center;
+}
+
+.slider::before, .slider::after {
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    content: ""; height: 100%; position: absolute; width: 150px; z-index: 2; pointer-events: none;
+}
+.slider::before { left: 0; top: 0; }
+.slider::after { right: 0; top: 0; transform: rotateZ(180deg); }
+
+.slide-track {
+    display: flex;
+    width: calc(200px * 32); /* 200px * 32 logos (16+16) */
+    animation: scroll 60s linear infinite; /* Velocidad ajustada */
+}
+
+.slide {
+    height: 100px;
+    width: 200px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 25px;
+    transition: transform 0.3s ease;
+}
+
+.slide img {
+    max-height: 70px;
+    max-width: 100%;
+    filter: grayscale(100%); /* Por defecto gris */
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+/* EFECTO ACTIVO (CENTRO) */
+.slide.active img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.3); /* Crece 30% */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-200px * 16)); } 
+}
 
 /* SECTORES ALTERNADOS */
 .sectors-section { padding: 6rem 5%; background: #fff; }
@@ -133,96 +196,11 @@ footer { background: var(--dark-bg); color: #999; text-align: center; padding: 3
     .sector-img { height: 250px; width: 100%; margin-top: 20px; }
     .nav-links { display: none; }
     .mobile-toggle { display: block; }
-}
-
-/* --- INFINITE LOGO SLIDER --- */
-.trust-banner {
-    background: white; /* Cambiado a blanco para que los logos resalten */
-    padding: 4rem 0;
-    text-align: center;
-    overflow: hidden; /* Oculta lo que se sale de la pantalla */
-    border-top: 1px solid #eee;
-}
-
-.trust-banner h3 {
-    color: var(--secondary);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.trust-banner p {
-    color: #666;
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-}
-
-/* Contenedor del Slider */
-.slider {
-    height: 100px;
-    margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-/* Efecto de desvanecimiento en los bordes (Opcional pero se ve PRO) */
-.slider::before,
-.slider::after {
-    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-    content: "";
-    height: 100px;
-    position: absolute;
-    width: 150px; /* Ancho del difuminado */
-    z-index: 2;
-}
-
-.slider::before {
-    left: 0;
-    top: 0;
-}
-
-.slider::after {
-    right: 0;
-    top: 0;
-    transform: rotateZ(180deg);
-}
-
-/* Pista que se mueve */
-.slide-track {
-    -webkit-animation: scroll 30s linear infinite;
-    animation: scroll 30s linear infinite;
-    display: flex;
-    width: calc(200px * 14); /* 200px por slide * 14 slides totales (7 originales + 7 duplicados) */
-}
-
-/* Cada Logo Individual */
-.slide {
-    height: 80px;
-    width: 200px; /* Ancho fijo para cada logo */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px; /* Espacio entre logos */
-}
-
-.slide img {
-    max-height: 70px; /* Altura máxima del logo */
-    max-width: 100%;
-    filter: grayscale(100%); /* Efecto blanco y negro elegante */
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    object-fit: contain;
-}
-
-/* Efecto al pasar el mouse: Color original y más opacidad */
-.slide img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Animación Keyframes */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-200px * 7)); } /* Mueve la mitad del track (7 slides originales) */
+    /* Ajuste Carrusel Móvil */
+    .slide { width: 150px; padding: 0 15px; }
+    .slide-track { width: calc(150px * 32); }
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-150px * 16)); }
+    }
 }
