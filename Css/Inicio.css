@@ -59,14 +59,14 @@ body { background-color: var(--light-bg); color: #333; line-height: 1.6; overflo
 .btn-white { background: white; color: var(--secondary); border: none; }
 .btn-white:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* VALUE PROP */
+/* VALUE PROP (Con Grid para 4 elementos) */
 .value-prop-section { padding: 5rem 5%; background: white; position: relative; }
 .section-header { text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto; }
 .section-header h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 10px; position: relative; display: inline-block; }
 .section-header h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 10px auto 0; }
 .section-header p { font-size: 1.1rem; color: var(--text-grey); }
 
-.value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
 .value-card {
     background: white; padding: 2.5rem; border-radius: 15px; border: 1px solid #eee;
     box-shadow: var(--shadow); transition: 0.3s; border-bottom: 4px solid var(--primary);
@@ -192,4 +192,45 @@ footer { background: var(--dark-bg); color: #999; text-align: center; padding: 3
         0% { transform: translateX(0); }
         100% { transform: translateX(calc(-150px * 16)); }
     }
+}
+
+/* --- NUEVA BARRA DE ESTADÍSTICAS --- */
+.stats-bar {
+    background: var(--secondary);
+    padding: 3rem 5%;
+    color: white;
+    margin-top: -5px; /* Para pegarlo al hero si es necesario */
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent); /* Verde turquesa para los números */
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .stats-grid { flex-direction: column; gap: 40px; }
 }

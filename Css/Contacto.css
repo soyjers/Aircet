@@ -1,61 +1,158 @@
-/* --- Css/Contacto.css --- */
+/* --- Css/Contacto.css (Dark Tech Edition) --- */
 
-.contact-page-wrapper {
+.contact-hub-wrapper {
     min-height: 85vh;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5; /* Fondo claro para que las tarjetas oscuras resalten */
+    padding: 6rem 5%;
+    text-align: center;
 }
 
-.contact-container {
-    background: white; width: 100%; max-width: 1100px;
-    border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-    display: flex; overflow: hidden;
+.contact-header {
+    margin-bottom: 4rem;
+    max-width: 700px;
 }
 
-/* COLUMNA INFO AZUL */
-.contact-info {
-    flex: 1; background: var(--secondary); color: white;
-    padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center;
-    position: relative; overflow: hidden;
-}
-/* Decoración de fondo sutil */
-.contact-info::before {
-    content: ''; position: absolute; top: -50px; left: -50px; width: 200px; height: 200px;
-    background: rgba(255,255,255,0.05); border-radius: 50%;
+.header-tag {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.contact-info h2 { font-size: 2.5rem; margin-bottom: 1.5rem; position: relative; z-index: 2; }
-.contact-info > p { margin-bottom: 3rem; opacity: 0.85; font-size: 1.05rem; position: relative; z-index: 2; }
-
-.info-list { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 30px; }
-.info-item { display: flex; align-items: center; gap: 20px; }
-.icon-wrap {
-    width: 55px; height: 55px; background: rgba(255,255,255,0.1); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--accent);
-    flex-shrink: 0;
+.contact-header h1 {
+    font-size: 3.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-weight: 800;
 }
-.info-item span { display: block; font-size: 0.85rem; text-transform: uppercase; opacity: 0.7; letter-spacing: 1px; margin-bottom: 3px; }
-.info-item p { font-size: 1.1rem; font-weight: 600; margin: 0; }
 
-/* COLUMNA FORMULARIO */
-.contact-form-col { flex: 1.3; padding: 4rem 3rem; background: #fff; }
-.form-box h3 { color: var(--secondary); margin-bottom: 2rem; font-size: 1.8rem; }
+.contact-header p {
+    font-size: 1.2rem;
+    color: #666;
+}
 
-.input-group { margin-bottom: 1.5rem; }
-.input-group label { display: block; margin-bottom: 8px; color: #555; font-weight: 600; font-size: 0.9rem; }
-.input-group input, .input-group textarea {
-    width: 100%; padding: 14px 18px; border: 1px solid #e0e0e0; border-radius: 8px;
-    font-size: 1rem; transition: 0.3s; background: #fcfcfc;
+/* GRID */
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    width: 100%;
+    max-width: 1200px;
 }
-.input-group input:focus, .input-group textarea:focus {
-    border-color: var(--accent); background: white; outline: none; box-shadow: 0 0 0 4px rgba(0, 169, 147, 0.1);
+
+/* --- ESTILO DE TARJETA DARK TECH (Igual a la tarjeta personal) --- */
+.action-card {
+    /* Fondo Azul Profundo con degradado */
+    background: radial-gradient(circle at 50% 0%, #005a94 0%, #002845 100%);
+    padding: 3.5rem 2rem;
+    border-radius: 15px; /* Bordes un poco redondeados para web */
+    text-decoration: none;
+    color: white; /* Texto blanco */
+    box-shadow: 0 20px 50px rgba(0, 40, 69, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
-.full-width { width: 100%; margin-top: 10px; font-size: 1.1rem; }
+
+/* Trama de fondo sutil (Grid) en las tarjetas */
+.action-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+/* Efecto Hover: Subir y brillar */
+.action-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 169, 147, 0.2); /* Sombra verde */
+    border-color: var(--accent);
+}
+
+/* --- ICONO EN CÍRCULO OSCURO (El detalle clave) --- */
+.icon-box {
+    width: 90px;
+    height: 90px;
+    background-color: #001f35; /* Fondo muy oscuro */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+    
+    /* Borde Verde Neón */
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.action-card:hover .icon-box {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 169, 147, 0.4); /* Resplandor al pasar mouse */
+    background-color: white; /* Invertir colores al hover */
+    color: var(--secondary);
+}
+
+/* Caso especial para WhatsApp (Icono verde al hover) */
+.action-card:hover .whatsapp-box {
+    color: #25d366;
+}
+
+.action-card h3 {
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 2;
+}
+
+.action-card p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Enlace/Botón simulado */
+.action-link {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 1px solid var(--accent);
+    border-radius: 50px;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 169, 147, 0.1);
+}
+
+.action-card:hover .action-link {
+    background: var(--accent);
+    color: white;
+}
 
 /* Responsive */
-@media (max-width: 900px) {
-    .contact-container { flex-direction: column; }
-    .contact-info { padding: 3rem 2rem; }
-    .contact-form-col { padding: 2rem; }
+@media (max-width: 768px) {
+    .contact-header h1 { font-size: 2.5rem; }
+    .contact-hub-wrapper { padding: 4rem 5%; }
 }

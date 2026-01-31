@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto AIRCET</title>
+    <title>Contacto AIRCET - Hablemos</title>
     <link rel="icon" href="../img/Logos/LogotipoOriginal.png" type="image/png">
     <link rel="stylesheet" href="../Css/Inicio.css">
     <link rel="stylesheet" href="../Css/Contacto.css">
@@ -18,79 +18,75 @@
         <ul class="nav-links">
             <li><a href="Inicio.html">Inicio</a></li>
             <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="Inicio.html#sectores">Sectores</a></li>
             <li><a href="Contacto.html" class="active">Contacto</a></li>
         </ul>
         <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
     </nav>
 
-    <div class="contact-page-wrapper">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Hablemos de Ingeniería</h2>
-                <p>Estamos listos para impulsar la transformación tecnológica y la eficiencia operativa en su empresa. Comuníquese hoy mismo.</p>
-                
-                <div class="info-list">
-                    <div class="info-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-envelope"></i></div>
-                        <div>
-                            <span>Email</span>
-                            <p>aircet@hotmail.com</p>
-                        </div>
-                    </div>
+    <div class="contact-hub-wrapper">
+        <div class="contact-header reveal">
+            <span class="header-tag">Canales Directos</span>
+            <h1>Inicie su Proyecto</h1>
+            <p>Ingeniería experta a un clic. Seleccione cómo prefiere contactarnos.</p>
+        </div>
 
-                    <div class="info-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-phone"></i></div>
-                        <div>
-                            <span>Teléfono</span>
-                            <p>+57 304 6323999</p>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="icon-wrap"><i class="fa-solid fa-location-dot"></i></div>
-                        <div>
-                            <span>Ubicación</span>
-                            <p>Bogotá, Colombia</p>
-                        </div>
-                    </div>
+        <div class="actions-grid">
+            
+            <a href="tel:+573046323999" class="action-card reveal">
+                <div class="icon-box">
+                    <i class="fa-solid fa-phone-volume"></i>
                 </div>
-            </div>
+                <h3>Llamada Directa</h3>
+                <p>Hable inmediatamente con un ingeniero comercial.</p>
+                <span class="action-link">+57 304 6323999</span>
+            </a>
 
-            <div class="contact-form-col">
-                <form class="form-box">
-                    <h3>Envíenos un mensaje</h3>
-                    <div class="input-group">
-                        <label>Nombre</label>
-                        <input type="text" placeholder="Su nombre completo" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Empresa</label>
-                        <input type="text" placeholder="Nombre de su empresa">
-                    </div>
-                    <div class="input-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="ejemplo@correo.com" required>
-                    </div>
-                    <div class="input-group">
-                        <label>¿En qué podemos ayudarle?</label>
-                        <textarea rows="4" placeholder="Describa su proyecto o necesidad..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width">Enviar Mensaje</button>
-                </form>
-            </div>
+            <a href="https://wa.me/573046323999?text=Hola%20Aircet,%20tengo%20un%20proyecto%20de%20ingeniería%20y%20necesito%20asesoría." target="_blank" class="action-card reveal" style="transition-delay: 0.1s;">
+                <div class="icon-box whatsapp-box">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp Business</h3>
+                <p>Chat rápido para consultas técnicas y cotizaciones ágiles.</p>
+                <span class="action-link">Iniciar Chat Ahora</span>
+            </a>
+
+            <a href="mailto:info@aircetcol.com" class="action-card reveal" style="transition-delay: 0.2s;">
+                <div class="icon-box">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <h3>Correo Corporativo</h3>
+                <p>Envíenos sus planos o requerimientos formales (RFP).</p>
+                <span class="action-link">info@aircetcol.com</span>
+            </a>
+
         </div>
     </div>
 
     <footer>
         <div class="footer-container">
-            <p>&copy; 2026 <strong>AIRCET</strong>. Bogotá, Colombia.</p>
+            <p>© 2026 <strong>AIRCET</strong>. Bogotá, Colombia.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/573046323999?text=Hola%20Aircet,%20deseo%20ponerme%20en%20contacto%20con%20ustedes." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/573046323999?text=Hola%20Aircet..." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp my-float"></i>
     </a>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 100;
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        reveal();
+    </script>
 
 </body>
 </html>

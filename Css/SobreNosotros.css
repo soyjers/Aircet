@@ -1,62 +1,82 @@
-/* --- Css/SobreNosotros.css --- */
+/* --- Css/SobreNosotros.css (Rediseño UX/UI) --- */
 
-.about-header {
-    height: 50vh;
-    background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
-    position: relative; display: flex; align-items: center; justify-content: center;
-    color: white; text-align: center;
+/* HERO MINIMALISTA */
+.about-hero {
+    height: 40vh;
+    background: var(--secondary); /* Fondo sólido elegante */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
 }
-.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 74, 131, 0.7); }
-.header-text { position: relative; z-index: 2; padding: 0 20px; }
-.header-text h1 { font-size: 3.5rem; margin-bottom: 0.5rem; font-weight: 800; }
-.header-text p { font-size: 1.2rem; opacity: 0.9; }
 
-/* BIO SECTION */
-.bio-section { padding: 6rem 5%; background: white; }
-.bio-grid { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-.bio-text { flex: 1; min-width: 300px; }
-.bio-img { flex: 1; min-width: 300px; position: relative; }
-.bio-img img { width: 100%; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+.about-hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }
+.about-hero p { font-size: 1.3rem; opacity: 0.9; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
-.bio-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; display: block; margin-bottom: 10px; }
-.bio-text h2 { color: var(--secondary); font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.1; }
-.bio-text p { color: #555; margin-bottom: 1.5rem; font-size: 1.05rem; line-height: 1.7; text-align: justify; }
+/* SECCIÓN SPLIT (Texto + Imagen) */
+.identity-section { padding: 6rem 5%; background: white; }
+.split-layout { display: flex; align-items: center; gap: 80px; }
 
-.mission-box {
-    background: #f0f7fb; padding: 1.5rem; border-left: 5px solid var(--accent);
-    border-radius: 0 10px 10px 0; margin-top: 2rem; display: flex; gap: 20px; align-items: center;
+.text-content { flex: 1; }
+.badge { background: rgba(0, 169, 147, 0.1); color: var(--accent); padding: 5px 15px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px; display: inline-block; }
+.text-content h2 { font-size: 2.8rem; color: var(--secondary); margin-bottom: 1.5rem; line-height: 1.1; }
+.lead { font-size: 1.2rem; color: #333; font-weight: 500; margin-bottom: 1.5rem; }
+.text-content p { color: #666; margin-bottom: 2rem; line-height: 1.7; }
+
+.highlight-box {
+    border-left: 4px solid var(--primary);
+    padding-left: 20px;
+    display: flex; gap: 15px;
 }
-.mission-icon i { font-size: 2rem; color: var(--primary); }
-.mission-box h4 { color: var(--secondary); margin-bottom: 0.3rem; font-size: 1.2rem; }
-.mission-box p { margin: 0; font-size: 0.95rem; }
+.highlight-box i { font-size: 2rem; color: var(--primary); }
+.highlight-box strong { display: block; color: var(--secondary); font-size: 1.1rem; margin-bottom: 5px; }
 
-/* VANGUARDIA */
-.vanguard-section { padding: 5rem 5%; background: var(--secondary); color: white; text-align: center; }
-.vanguard-section h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-.vanguard-sub { margin-bottom: 3rem; opacity: 0.8; font-size: 1.1rem; }
-.vanguard-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-.v-card {
-    background: rgba(255,255,255,0.1); padding: 2.5rem 1.5rem; border-radius: 15px; width: 200px;
-    backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+.image-content { flex: 1; position: relative; }
+.main-img { width: 100%; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+
+/* Tarjeta flotante sobre la imagen */
+.floating-card {
+    position: absolute; bottom: -30px; left: -30px;
+    background: white; padding: 2rem; border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
 }
-.v-card:hover { background: var(--accent); transform: translateY(-8px); border-color: var(--accent); }
-.v-card i { font-size: 2.5rem; margin-bottom: 1.2rem; display: block; }
-.v-card h4 { font-size: 1.1rem; font-weight: 600; }
+.floating-card .number { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.floating-card .label { font-weight: 700; color: var(--secondary); line-height: 1.2; font-size: 0.9rem; }
 
-/* CALIDAD */
-.quality-section { padding: 6rem 5%; background: #f9f9f9; }
-.quality-content { max-width: 1000px; margin: 0 auto; text-align: center; }
-.quality-content h2 { color: var(--dark-bg); margin-bottom: 1.5rem; font-size: 2.5rem; }
-.quality-content > p { margin-bottom: 4rem; color: #666; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+/* BANNER FABRICANTES (Oscuro) */
+.manufacturer-banner {
+    background: var(--dark-bg);
+    color: white;
+    padding: 5rem 5%;
+    margin: 4rem 0;
+}
+.mf-content { display: flex; align-items: center; gap: 40px; max-width: 1100px; margin: 0 auto; }
+.mf-icon { font-size: 4rem; color: var(--accent); }
+.mf-text h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+.mf-text p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; }
+.btn-white-outline { border: 2px solid white; color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; white-space: nowrap; transition: 0.3s; }
+.btn-white-outline:hover { background: white; color: var(--dark-bg); }
 
-.quality-list { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; }
-.q-item { width: 280px; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
-.q-item:hover { transform: translateY(-5px); }
-.q-item i { font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; }
-.q-item h4 { color: var(--secondary); font-size: 1.2rem; margin-bottom: 0.5rem; }
-.q-item p { color: #666; font-size: 0.95rem; }
+/* CAPACIDADES GRID */
+.capabilities-section { padding: 4rem 5% 6rem; text-align: center; }
+.section-title { margin-bottom: 4rem; }
+.section-title h2 { font-size: 2.5rem; color: var(--secondary); }
+.cap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+.cap-item {
+    padding: 2.5rem; border: 1px solid #eee; border-radius: 15px; transition: 0.3s;
+}
+.cap-item:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--accent); }
+.cap-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+.cap-item h4 { font-size: 1.2rem; color: var(--secondary); margin-bottom: 0.5rem; }
+.cap-item p { font-size: 0.9rem; color: #666; }
 
-@media (max-width: 768px) {
-    .bio-grid { flex-direction: column; }
-    .header-text h1 { font-size: 2.5rem; }
+/* Responsive */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; }
+    .image-content { order: -1; width: 100%; }
+    .floating-card { right: 20px; left: auto; bottom: -20px; }
+    .mf-content { flex-direction: column; text-align: center; }
 }
