@@ -1,10 +1,21 @@
 RewriteEngine On
 
-# 1. Si el usuario escribe /contacto.html, lo redirige a /contacto
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^ /%1 [NC,L,R]
+# 1. FORZAR HTTPS (Opcional pero recomendado para seguridad)
+# Si tu hosting ya lo hace automático, puedes borrar estas 2 líneas
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# 2. Si el usuario escribe /contacto, internamente busca contacto.html
+# 2. QUITAR LA EXTENSIÓN .HTML DE LA URL VISIBLE
+# Si alguien escribe "contacto.html", el navegador cambia a "contacto"
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# 3. RUTAS LIMPIAS (PRETTY URLS)
+# Si alguien escribe "/contacto", el servidor busca internamente "contacto.html"
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
+
+# 4. MANEJO DE ERROR 404 (Opcional)
+# Si la página no existe, redirige al inicio
+ErrorDocument 404 /index.html
