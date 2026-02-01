@@ -1,168 +1,76 @@
-/* --- Css/SobreNosotros.css (Diseño Separado por Secciones) --- */
+/* --- Css/SobreNosotros.css (Responsive) --- */
 
-/* 1. HERO - Fondo Blanco con Grid */
+/* HERO */
 .about-hero {
-    height: 50vh;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-    background-size: 30px 30px;
-    border-bottom: 1px solid #eee; /* Línea sutil de separación */
+    height: 50vh; background: #fff; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 0 20px;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 30px 30px;
+    border-bottom: 1px solid #eee;
 }
+.hero-label { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; display: block; margin-bottom: 15px; }
+.about-hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--secondary); line-height: 1.1; margin-bottom: 1.5rem; }
+.highlight-text { color: var(--primary); position: relative; display: inline-block; }
+.highlight-text::after { content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 10px; background: rgba(0, 169, 147, 0.15); z-index: -1; }
+.about-hero p { font-size: 1.3rem; color: #666; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
-.hero-label {
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.about-hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--secondary);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-.highlight-text {
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-}
-.highlight-text::after {
-    content: ''; position: absolute; bottom: 5px; left: 0; width: 100%; height: 10px;
-    background: rgba(0, 169, 147, 0.15); z-index: -1;
-}
-
-.about-hero p {
-    font-size: 1.3rem;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-    font-weight: 300;
-}
-
-/* 2. IDENTIDAD - Fondo Gris Azulado Suave */
-.identity-section { 
-    padding: 7rem 5%; 
-    background: #f4f6f9; /* Color de fondo diferente para separar */
-}
+/* IDENTIDAD */
+.identity-section { padding: 7rem 5%; background: #f4f6f9; }
 .split-layout { display: flex; align-items: center; gap: 60px; }
-
 .text-content { flex: 1; }
 .text-content h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1.5rem; }
 .lead { font-size: 1.15rem; font-weight: 500; color: #333; margin-bottom: 1.5rem; border-left: 4px solid var(--accent); padding-left: 20px; }
 .text-content p { color: #666; margin-bottom: 2rem; line-height: 1.6; }
-
 .stats-mini-grid { display: flex; gap: 40px; }
 .stat-box .stat-num { display: block; font-size: 2.5rem; font-weight: 800; color: var(--primary); line-height: 1; }
 .stat-box .stat-desc { font-size: 0.9rem; font-weight: 600; color: var(--secondary); text-transform: uppercase; }
-
 .image-content { flex: 1; }
-.image-frame {
-    position: relative; padding: 15px; border: 2px solid white; border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08); background: white;
-}
+.image-frame { position: relative; padding: 15px; border: 2px solid white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); background: white; }
 .main-img { width: 100%; border-radius: 15px; display: block; }
 
-/* 3. SOMOS FABRICANTES - Fondo OSCURO COMPLETO (Separación Fuerte) */
-.manufacturer-full-section {
-    padding: 6rem 5%;
-    background: radial-gradient(circle at 20% 50%, #003355 0%, #001f35 100%); /* Azul oscuro profundo */
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Decoración de fondo */
-.manufacturer-full-section::before {
-    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px; pointer-events: none;
-}
-
-.mf-grid {
-    display: flex; align-items: center; gap: 50px; position: relative; z-index: 2;
-    max-width: 1100px; margin: 0 auto;
-}
-
+/* SOMOS FABRICANTES (OSCURO) */
+.manufacturer-full-section { padding: 6rem 5%; background: radial-gradient(circle at 20% 50%, #003355 0%, #001f35 100%); color: white; position: relative; overflow: hidden; }
+.manufacturer-full-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+.mf-grid { display: flex; align-items: center; gap: 50px; position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
 .mf-icon-col { flex: 0 0 150px; display: flex; justify-content: center; }
-.big-icon-circle {
-    width: 140px; height: 140px;
-    border: 3px solid var(--accent);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 4rem; color: var(--accent);
-    box-shadow: 0 0 40px rgba(0, 169, 147, 0.2);
-    background: rgba(255,255,255,0.05);
-}
-
+.big-icon-circle { width: 140px; height: 140px; border: 3px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: var(--accent); box-shadow: 0 0 40px rgba(0, 169, 147, 0.2); background: rgba(255,255,255,0.05); }
 .mf-text-col { flex: 1; }
 .mf-text-col h3 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
 .mf-lead { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2.5rem; font-weight: 300; }
-
 .mf-features { display: flex; flex-direction: column; gap: 15px; }
 .mf-feat { display: flex; align-items: center; gap: 15px; font-size: 1.05rem; }
 .mf-feat i { color: var(--accent); font-size: 1.2rem; }
 
-/* 4. METODOLOGÍA - Fondo Blanco Limpio */
-.process-section { 
-    padding: 7rem 5%; 
-    background: white; /* Blanco puro para descansar la vista */
-    text-align: center; 
-}
+/* METODOLOGÍA */
+.process-section { padding: 7rem 5%; background: white; text-align: center; }
 .section-header { margin-bottom: 4rem; }
 .section-header h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
-
 .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-.process-card {
-    background: #fff; border: 1px solid #eee; padding: 3rem 2rem; border-radius: 15px;
-    transition: 0.3s; position: relative; overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-}
+.process-card { background: #fff; border: 1px solid #eee; padding: 3rem 2rem; border-radius: 15px; transition: 0.3s; position: relative; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
 .process-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--primary); }
-
-.step-num {
-    font-size: 4rem; font-weight: 900; color: rgba(0, 114, 184, 0.05);
-    position: absolute; top: 0px; right: 20px; line-height: 1;
-}
+.step-num { font-size: 4rem; font-weight: 900; color: rgba(0, 114, 184, 0.05); position: absolute; top: 0px; right: 20px; line-height: 1; }
 .process-card h4 { font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; position: relative; }
 .process-card p { font-size: 0.95rem; color: #666; }
 
-/* 5. VANGUARDIA - Fondo Gris Plata (Estilo Técnico) */
-.vanguard-section { 
-    padding: 6rem 5%; 
-    background: #eef2f5; /* Gris técnico */
-}
+/* VANGUARDIA */
+.vanguard-section { padding: 6rem 5%; background: #eef2f5; }
 .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-
-/* Tarjetas Dark Tech */
-.dark-card {
-    background: #001f35; /* Fondo oscuro */
-    padding: 2.5rem; border-radius: 15px; color: white;
-    transition: 0.4s; border: 1px solid rgba(255,255,255,0.05);
-    position: relative; overflow: hidden; text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+.dark-card { background: #001f35; padding: 2.5rem; border-radius: 15px; color: white; transition: 0.4s; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 .dark-card:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-
 .glow-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem; transition: 0.3s; }
 .dark-card:hover .glow-icon { transform: scale(1.1); text-shadow: 0 0 15px var(--accent); }
-
 .dark-card h4 { font-size: 1.3rem; margin-bottom: 0.8rem; }
 .dark-card p { font-size: 0.9rem; opacity: 0.7; }
 
-/* Responsive */
+/* MEDIA QUERIES (RESPONSIVE) */
 @media (max-width: 900px) {
-    .split-layout { flex-direction: column; }
+    .split-layout { flex-direction: column; gap: 40px; }
+    .image-content { width: 100%; order: -1; }
     .mf-grid { flex-direction: column; text-align: center; }
+    .mf-features { align-items: center; }
+}
+
+@media (max-width: 768px) {
     .about-hero h1 { font-size: 2.5rem; }
+    .process-grid, .tech-grid { grid-template-columns: 1fr; }
+    .stats-mini-grid { flex-direction: column; gap: 20px; }
 }

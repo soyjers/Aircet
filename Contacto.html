@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto AIRCET - Hablemos</title>
-    <link rel="icon" href="../img/Logos/LogotipoOriginal.png" type="image/png">
-    <link rel="stylesheet" href="../Css/Inicio.css">
-    <link rel="stylesheet" href="../Css/Contacto.css">
+    <link rel="icon" href="img/Logos/LogotipoOriginal.png" type="image/png">
+    <link rel="stylesheet" href="Css/Inicio.css">
+    <link rel="stylesheet" href="Css/Contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="Inicio.html" class="logo-container">
-            <img src="../img/Logos/LogoBlanco.png" alt="AIRCET Logo" class="logo-img">
+        <a href="index.html" class="logo-container">
+            <img src="img/Logos/LogoBlanco.png" alt="AIRCET Logo" class="logo-img">
         </a>
         <ul class="nav-links">
-            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="Contacto.html" class="active">Contacto</a></li>
         </ul>
@@ -27,35 +27,29 @@
         <div class="contact-header reveal">
             <span class="header-tag">Canales Directos</span>
             <h1>Inicie su Proyecto</h1>
-            <p>Ingeniería experta a un clic. Seleccione cómo prefiere contactarnos.</p>
+            <p>Ingeniería experta a un clic. Seleccione su canal preferido.</p>
         </div>
 
         <div class="actions-grid">
             
             <a href="tel:+573046323999" class="action-card reveal">
-                <div class="icon-box">
-                    <i class="fa-solid fa-phone-volume"></i>
-                </div>
+                <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
                 <h3>Llamada Directa</h3>
-                <p>Hable inmediatamente con un ingeniero comercial.</p>
+                <p>Hable inmediatamente con un ingeniero.</p>
                 <span class="action-link">+57 304 6323999</span>
             </a>
 
-            <a href="https://wa.me/573046323999?text=Hola%20Aircet,%20tengo%20un%20proyecto%20de%20ingeniería%20y%20necesito%20asesoría." target="_blank" class="action-card reveal" style="transition-delay: 0.1s;">
-                <div class="icon-box whatsapp-box">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </div>
+            <a href="https://wa.me/573046323999?text=Hola%20Aircet..." target="_blank" class="action-card reveal" style="transition-delay: 0.1s;">
+                <div class="icon-box whatsapp-box"><i class="fa-brands fa-whatsapp"></i></div>
                 <h3>WhatsApp Business</h3>
-                <p>Chat rápido para consultas técnicas y cotizaciones ágiles.</p>
+                <p>Chat rápido para consultas técnicas.</p>
                 <span class="action-link">Iniciar Chat Ahora</span>
             </a>
 
             <a href="mailto:info@aircetcol.com" class="action-card reveal" style="transition-delay: 0.2s;">
-                <div class="icon-box">
-                    <i class="fa-solid fa-envelope-open-text"></i>
-                </div>
+                <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
                 <h3>Correo Corporativo</h3>
-                <p>Envíenos sus planos o requerimientos formales (RFP).</p>
+                <p>Envíenos sus planos o requerimientos (RFP).</p>
                 <span class="action-link">info@aircetcol.com</span>
             </a>
 
@@ -73,6 +67,7 @@
     </a>
 
     <script>
+        // Mismo script responsive
         window.addEventListener('scroll', reveal);
         function reveal(){
             var reveals = document.querySelectorAll('.reveal');
@@ -86,6 +81,18 @@
             }
         }
         reveal();
+
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('mobile-active')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
     </script>
 
 </body>
