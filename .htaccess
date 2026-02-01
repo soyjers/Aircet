@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# 1. Si el usuario escribe /contacto.html, lo redirige a /contacto
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+# 2. Si el usuario escribe /contacto, internamente busca contacto.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
