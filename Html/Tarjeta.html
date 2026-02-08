@@ -3,126 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarjeta AIRCET - Ingeniero Final</title>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Tarjeta Corporativa AIRCET</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- CONFIGURACIÓN BASE --- */
+        /* --- RESET & BASE --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            background-color: #dce1e6;
+            background-color: #eef2f5;
             font-family: 'Roboto', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            gap: 60px;
-            flex-wrap: wrap;
-            padding: 40px;
+            padding: 30px;
         }
 
         :root {
-            /* Paleta Oficial */
-            --primary: #0072B8;       /* Azul Corporativo */
-            --dark-blue: #003355;     /* Azul Fondo */
-            --deep-tech: #001f35;     /* Azul Casi Negro (Para el círculo) */
+            --primary: #0072B8;       /* Azul AIRCET */
+            --dark-blue: #003355;     /* Azul Oscuro */
+            --deep-tech: #001f35;     /* Azul Profundo */
             --accent: #00A993;        /* Verde Turquesa */
-            --white: #ffffff;
-            --text-dark: #1a2b36;
+            --text-grey: #555555;
+        }
+
+        .card-wrapper {
+            box-shadow: 0 40px 70px rgba(0, 51, 85, 0.25);
+            border-radius: 0px; /* Bordes rectos profesionales */
+            overflow: hidden;
         }
 
         .card-side {
             width: 508px;
             height: 290px;
-            box-shadow: 0 30px 60px rgba(0, 51, 85, 0.3);
             position: relative;
-            overflow: hidden;
             background: #fff;
-            border-radius: 0; /* Bordes rectos (Estilo Técnico) */
         }
 
         /* =========================================
-           FRENTE: CÍRCULO OSCURO + LOGO BLANCO
+           FRENTE: IDENTIDAD CORPORATIVA
            ========================================= */
         .card-front {
-            /* Fondo azul tecnológico profundo con degradado */
             background: radial-gradient(circle at 50% 50%, #005a94 0%, #002845 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
-        /* Trama de fondo (Grid Tecnológico) */
+        /* Trama tecnológica de fondo */
         .card-front::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
             background-size: 35px 35px;
             pointer-events: none;
         }
 
-        /* CÍRCULO OSCURO (El contraste perfecto para letras blancas) */
         .logo-circle {
-            width: 190px;
-            height: 190px;
-            background-color: var(--deep-tech); /* Fondo oscuro */
+            width: 180px; height: 180px;
+            background-color: var(--deep-tech);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            /* Borde Turquesa para resaltar */
-            border: 2px solid var(--accent); 
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Sombra de profundidad */
-            
-            z-index: 2;
-            margin-bottom: 15px;
-            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--accent); /* Borde neón */
+            box-shadow: 0 0 35px rgba(0, 0, 0, 0.5);
+            z-index: 2; margin-bottom: 15px; position: relative;
         }
 
-        /* Efecto de brillo interior en el círculo */
         .logo-circle::after {
-            content: '';
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.1);
-            pointer-events: none;
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.08); pointer-events: none;
         }
 
-        /* LOGO (Las letras blancas resaltarán aquí) */
         .logo-img {
-            width: 140px; /* Tamaño ajustado */
-            height: auto;
-            display: block;
-            /* Si el logo.png tiene algo de color, esto asegura que brille un poco */
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); 
+            width: 135px; height: auto; display: block;
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.15)); 
         }
 
-        /* Texto inferior */
         .tagline {
-            font-family: 'Exo 2', sans-serif;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            font-family: 'Exo 2', sans-serif; color: #fff; font-size: 1.1rem; font-weight: 700;
+            letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.6);
             z-index: 2;
-            margin-top: 5px;
         }
-        
-        .tagline span { color: var(--accent); } /* El "&" en verde */
+        .tagline span { color: var(--accent); }
 
         /* =========================================
-           REVERSO: DATOS CLAROS
+           REVERSO: ORGANIZADO Y LIMPIO
            ========================================= */
         .card-back {
             background: #fff;
@@ -130,56 +101,71 @@
             flex-direction: row;
         }
 
-        /* Banda lateral */
+        /* Barra Lateral */
         .side-bar {
-            width: 12px;
-            height: 100%;
-            background: var(--primary);
-            position: relative;
+            width: 14px; height: 100%; background: var(--primary); position: relative; z-index: 1;
         }
         .side-bar::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 35%; background: var(--accent);
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: var(--accent);
         }
 
+        /* Contenido Principal */
         .content-area {
             flex: 1;
-            padding: 35px 45px;
+            padding: 30px 40px; /* Espacio cómodo */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between; /* Distribución vertical perfecta */
             position: relative;
+            z-index: 1;
         }
 
-        /* Marca de agua */
+        /* Marca de Agua de Fondo */
         .bg-watermark {
             position: absolute;
             right: -20px; bottom: -30px;
-            width: 260px;
-            opacity: 0.04;
+            width: 280px;
+            opacity: 0.04; /* Muy sutil */
             pointer-events: none;
             transform: rotate(-10deg);
+            z-index: 0;
         }
 
-        /* Nombre y Cargo */
-        .header-info { margin-bottom: 25px; }
-
-        .name {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--dark-blue);
-            text-transform: uppercase;
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .role {
+        /* Sección de Servicios */
+        .services-section h3 {
             font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--accent); /* Verde */
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 0.7rem; font-weight: 700; color: var(--accent);
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .services-list {
+            list-style: none; padding: 0; margin: 0;
+            display: flex; flex-direction: column; gap: 8px; /* Espaciado entre items */
+        }
+
+        .services-list li {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700; font-size: 0.95rem; color: var(--dark-blue);
+            text-transform: uppercase; letter-spacing: 0.5px;
+            display: flex; align-items: center;
+        }
+
+        .services-list li::before {
+            content: '■'; color: var(--accent); font-size: 0.5rem; margin-right: 12px; transform: translateY(-1px);
+        }
+
+        /* Línea Divisoria */
+        .divider {
+            height: 1px; background: #e0e0e0; width: 100%; margin: 18px 0;
+        }
+
+        /* Sección Inferior: Grid de 2 Columnas */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr; /* Más espacio para texto, QR a la derecha */
+            align-items: center;
+            gap: 15px;
         }
 
         /* Lista de Contacto */
@@ -189,92 +175,98 @@
 
         .c-row {
             display: flex; align-items: center;
-            font-size: 0.9rem;
-            color: #444;
-            font-weight: 500;
+            font-size: 0.85rem; color: var(--text-grey); font-weight: 500;
         }
 
         .c-icon {
-            width: 26px;
-            color: var(--primary);
-            text-align: center;
-            margin-right: 12px;
-            font-size: 0.95rem;
+            width: 22px; text-align: center; margin-right: 10px;
+            font-size: 0.9rem; color: var(--primary);
         }
 
-        /* QR */
+        /* Área del QR (Más Grande y Limpia) */
         .qr-area {
-            position: absolute;
-            right: 35px; bottom: 35px;
-            text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center;
         }
+
         .qr-border {
-            border: 2px solid var(--primary);
-            padding: 3px;
-            border-radius: 4px;
-            background: white;
+            padding: 4px; background: white; border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            border: 1px solid #eee;
         }
-        .qr-placeholder {
-            width: 70px; height: 70px;
-            background: #f4f4f4;
-            display: flex; align-items: center; justify-content: center;
-            color: #ccc; font-size: 1.5rem;
+
+        /* IMAGEN DEL QR - AUMENTADA */
+        .qr-img-real {
+            width: 110px; /* QR Grande */
+            height: 110px; 
+            display: block; object-fit: contain;
         }
+
         .scan-text {
-            display: block; margin-top: 5px;
+            margin-top: 6px;
             font-size: 0.65rem; font-weight: 700;
-            color: var(--dark-blue); text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--primary); text-transform: uppercase; letter-spacing: 1px;
         }
 
     </style>
 </head>
 <body>
-
-    <div class="card-side card-front">
-        <div class="logo-circle">
-            <img src="../img/Logos/Logo.png" alt="AIRCET" class="logo-img">
+    
+    <div class="card-wrapper">
+        <div class="card-side card-front">
+            <div class="logo-circle">
+                <img src="../img/Logos/Logo.png" alt="AIRCET" class="logo-img">
+            </div>
+            <div class="tagline">Ingeniería <span>&</span> Automatización</div>
         </div>
-        <div class="tagline">Ingeniería <span>&</span> Automatización</div>
-    </div>
 
-    <div class="card-side card-back">
-        
-        <div class="side-bar"></div>
-        <img src="../img/Logos/LogoAzul.png" class="bg-watermark">
+        <div class="card-side card-back">
+            <div class="side-bar"></div>
+            
+            <img src="../img/Logos/LogoAzul.png" class="bg-watermark">
 
-        <div class="content-area">
-            <div class="header-info">
-                <h1 class="name">Daniel Ruiz</h1>
-                <span class="role">Ingeniero</span>
-            </div>
+            <div class="content-area">
+                
+                <div class="services-section">
+                    <h3>Nuestros Servicios</h3>
+                    <ul class="services-list">
+                        <li>Fabricación de Ductos</li>
+                        <li>Ingeniería HVAC</li>
+                        <li>Automatización BMS</li>
+                    </ul>
+                </div>
 
-            <div class="contact-list">
-                <div class="c-row">
-                    <div class="c-icon"><i class="fas fa-phone"></i></div>
-                    <span>+57 304 6323999</span>
-                </div>
-                <div class="c-row">
-                    <div class="c-icon"><i class="fas fa-envelope"></i></div>
-                    <span>info@aircetcol.com</span>
-                </div>
-                <div class="c-row">
-                    <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <span>Bogotá, Colombia</span>
-                </div>
-                <div class="c-row">
-                    <div class="c-icon"><i class="fas fa-globe"></i></div>
-                    <span>www.aircetcol.com</span>
-                </div>
-            </div>
+                <div class="divider"></div>
 
-            <div class="qr-area">
-                <div class="qr-border">
-                    <div class="qr-placeholder">
-                        <i class="fas fa-qrcode"></i>
+                <div class="bottom-grid">
+                    
+                    <div class="contact-list">
+                        <div class="c-row">
+                            <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
+                            <span>+57 304 6323999</span>
+                        </div>
+                        <div class="c-row">
+                            <div class="c-icon"><i class="fas fa-envelope"></i></div>
+                            <span>info@aircetcol.com</span>
+                        </div>
+                        <div class="c-row">
+                            <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <span>Bogotá, D.C.</span>
+                        </div>
+                        <div class="c-row">
+                            <div class="c-icon"><i class="fas fa-globe"></i></div>
+                            <span>www.aircetcol.com</span>
+                        </div>
                     </div>
+
+                    <div class="qr-area">
+                        <div class="qr-border">
+                            <img src="../img/QR/QRAIRCETCOL.jpg" alt="Visitar Web" class="qr-img-real">
+                        </div>
+                        <span class="scan-text">Visitar Web</span>
+                    </div>
+
                 </div>
-                <span class="scan-text">Contacto</span>
             </div>
         </div>
     </div>
